@@ -21,8 +21,8 @@ const contactInfo = [
   {
     id: 'email',
     label: 'E-posta',
-    value: 'info@firma.com',
-    href: 'mailto:info@firma.com',
+    value: contact.email,
+    href: `mailto:${contact.email}`,
     colorClass: 'icon-mail',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
