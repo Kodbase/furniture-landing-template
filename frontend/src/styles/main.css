@@ -1,0 +1,45 @@
+@import url(./Hero.css);
+@import url(./Features.css);
+@import url(./MiniGallery.css);
+@import url(./FAQ.css);
+@import url(./CTA.css);
+@import url(./Abaut.css);
+@import url(./Contact.css);
+@import url(./Footer.css);
+
+
+/*
+    josh's Custom CSS Reset
+    https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+/* Daha sezgisel kutu boyutlandırma
+margin ve padding ide boyutun içinden sayar */
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+/* Margin sıfırlama */
+*{
+    margin: 0;
+}
+body{
+    /* Satır aralığı */
+    line-height: 1.5;
+    /* Yazı cilalama */
+    -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg{
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select{
+    font: inherit;
+}
+/* Metin taşmalarını önlemek için */
+p, h1, h2, h3, h4, h5, h6{
+    overflow-wrap: break-word;
+}
+/* Satır kaydırma iyileştirme */
+p{
+    text-wrap:balance;
+}
+/********************************************/

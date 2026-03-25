@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+.cta-section {
+  position: relative;
+  overflow: hidden;
+  background: #0e0e0e;
+}
+
+/* ── Arka plan efektleri ── */
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(232,201,126,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(83,52,131,0.12)  0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-grid-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ── Layout ── */
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 64px;
+}
+
+/* ── Sol taraf ── */
+.cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 20px;
+}
+
+.cta-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: #e8c97e;
+  flex-shrink: 0;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.cta-title em {
+  font-style: italic;
+  color: #e8c97e;
+}
+
+.cta-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0;
+}
+
+/* ── İstatistikler ── */
+.cta-stats {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 0.5px solid rgba(255,255,255,0.08);
+}
+
+.cta-stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e8c97e;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.cta-stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.cta-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+/* ── Sağ taraf – Butonlar ── */
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 220px;
+}
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 16px 28px;
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.3);
+}
+
+.cta-btn-primary:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+}
+
+.cta-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  padding: 16px 28px;
+  border-radius: 4px;
+  border: 0.5px solid rgba(255,255,255,0.2);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+
+.cta-btn-secondary:hover {
+  border-color: rgba(255,255,255,0.45);
+  color: #ffffff;
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .cta-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 72px 40px;
+  }
+
+  .cta-right {
+    flex-direction: row;
+    min-width: unset;
+  }
+
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-inner { padding: 64px 20px; }
+
+  .cta-stats { gap: 24px; }
+
+  .cta-right { flex-direction: column; }
+
+  .cta-btn-primary,
+  .cta-btn-secondary { width: 100%; }
+}
+
+@media (max-width: 400px) {
+  .cta-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .cta-divider { display: none; }
+}
