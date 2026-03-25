@@ -33,7 +33,7 @@ export const content = {
     eyebrow: "Sık Sorulan Sorular",
     title: {
         line1:"Aklınızdaki",
-        line2:"Aklınızdaki"
+        line2:"Sorular"
     },
     subtitle: "En çok merak edilen konuları derledik. Cevabını bulamazsanız bize doğrudan yazın.",
     cta: "WhatsApp'tan Sor"
