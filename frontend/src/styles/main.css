@@ -1,3 +1,6 @@
+/* ============================================================
+   SECTION İMPORTLARI
+   ============================================================ */
 @import url(./Hero.css);
 @import url(./Features.css);
 @import url(./MiniGallery.css);
@@ -8,38 +11,89 @@
 @import url(./Footer.css);
 
 
-/*
-    josh's Custom CSS Reset
-    https://www.joshwcomeau.com/css/custom-css-reset/
-*/
-/* Daha sezgisel kutu boyutlandırma
-margin ve padding ide boyutun içinden sayar */
-*, *::before, *::after{
-    box-sizing: border-box;
+
+/* ============================================================
+   TEMA TOKEN SİSTEMİ — Tüm renkler, yazı tipleri ve boşluklar
+   buradan yönetilir. Başka hiçbir dosyada sabit renk kodu yok.
+   ============================================================ */
+
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+
+  /* ── MARKA RENKLERİ ─────────────────────────────────────── */
+  --color-brand-gold:        #e8c97e;   /* Altın vurgu (başlıklar, ikonlar)  */
+  --color-brand-gold-light:  #f4e4b3;   /* Soluk altın (hover, bg tonu)       */
+  --color-brand-green:       #25d366;   /* WhatsApp / CTA butonu              */
+  --color-brand-green-hover: #1ebe5d;   /* WhatsApp / CTA hover               */
+  --color-brand-green-glow:  rgba(37,211,102,0.35); /* Yeşil buton gölgesi   */
+
+  /* ── NÖTR TONLAR ────────────────────────────────────────── */
+  --color-dark:        #0e0e0e;          /* En koyu arka plan / footer        */
+  --color-dark-2:      #111111;          /* Yazı / başlıklar                  */
+  --color-mid:         #444444;          /* Orta ton yazı                     */
+  --color-muted:       #666666;          /* Açıklama metinleri                */
+  --color-subtle:      #888888;          /* Etiketler, ikincil bilgi          */
+  --color-faint:       #aaaaaa;          /* İtalik vurgular, soluk metin      */
+
+  --color-surface-0:   #ffffff;          /* Beyaz zemin                       */
+  --color-surface-1:   #f9f8f6;          /* Hafif krem zemin                  */
+  --color-surface-2:   #f3f2ef;          /* Hover zemin                       */
+
+  --color-border:      #e5e5e0;          /* Ana kenar çizgisi (0.5px)         */
+  --color-border-mid:  #e0ddd8;          /* Form, buton kenarlıkları          */
+  --color-border-dark: rgba(255,255,255,0.07); /* Koyu zemin üstü bölücü    */
+
+  /* ── DARK ZEMIN ÜZERİ YAZI ─────────────────────────────── */
+  --color-on-dark-hi:  rgba(255,255,255,0.65);  /* Yüksek kontrast           */
+  --color-on-dark-mid: rgba(255,255,255,0.45);  /* Orta kontrast             */
+  --color-on-dark-low: rgba(255,255,255,0.25);  /* Düşük kontrast            */
+
+  /* ── İKON ARKA PLANLARI (feature & contact kartlar) ──────── */
+  --icon-bg-teal:   #e1f5ee;   --icon-fg-teal:   #0f6e56;  --icon-acc-teal:  #1D9E75;
+  --icon-bg-blue:   #e6f1fb;   --icon-fg-blue:   #185fa5;  --icon-acc-blue:  #378ADD;
+  --icon-bg-amber:  #faeeda;   --icon-fg-amber:  #854f0b;  --icon-acc-amber: #BA7517;
+  --icon-bg-coral:  #faece7;   --icon-fg-coral:  #993c1d;  --icon-acc-coral: #D85A30;
+  --icon-bg-purple: #eeedfe;   --icon-fg-purple: #534ab7;  --icon-acc-purple:#7F77DD;
+  --icon-bg-pink:   #fbeaf0;   --icon-fg-pink:   #993556;  --icon-acc-pink:  #D4537E;
+
+  /* ── YAZI TİPLERİ ───────────────────────────────────────── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* ── BOYUTLAR & ARALIKLARI ──────────────────────────────── */
+  --section-padding-y:  96px;
+  --section-padding-y-sm: 64px;  /* mobil */
+  --container-width:    1100px;
+  --container-px:       40px;
+  --container-px-sm:    20px;
+  --radius-card:        12px;
+  --radius-card-lg:     16px;
+  --radius-btn:         4px;
+  --radius-pill:        20px;
+  --radius-icon:        8px;
+
+  /* ── GEÇİŞ SÜRELERİ ────────────────────────────────────── */
+  --transition-fast:    0.2s ease;
+  --transition-mid:     0.25s ease;
+  --transition-slow:    0.35s ease;
 }
-/* Margin sıfırlama */
-*{
-    margin: 0;
+
+/* ── KOYU TEMA ÖRNEĞİ (isteğe bağlı; class="theme-dark" body'e ekle) ── */
+/* .theme-dark { --color-surface-0: #141414; --color-dark-2: #f0f0f0; ... } */
+
+
+/* ============================================================
+   JOSH'UN CSS RESET'İ
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
-body{
-    /* Satır aralığı */
-    line-height: 1.5;
-    /* Yazı cilalama */
-    -webkit-font-smoothing: antialiased;
-}
-img, picture, video, canvas, svg{
-    display: block;
-    max-width: 100%;
-}
-input, button, textarea, select{
-    font: inherit;
-}
-/* Metin taşmalarını önlemek için */
-p, h1, h2, h3, h4, h5, h6{
-    overflow-wrap: break-word;
-}
-/* Satır kaydırma iyileştirme */
-p{
-    text-wrap:balance;
-}
-/********************************************/
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select   { font: inherit; }
+p, h1, h2, h3, h4, h5, h6        { overflow-wrap: break-word; }
+p { text-wrap: balance; }
+
